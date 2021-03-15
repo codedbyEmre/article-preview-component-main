@@ -1,7 +1,5 @@
 # Frontend Mentor - Article preview component
 
-If you want to see the live version of this project, please <a href="https://article-preview-component-main-codedbyemre.netlify.app/" target="_blanck">click here</a>
-
 ![Design preview for the Article preview component coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
