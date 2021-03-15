@@ -1,0 +1,192 @@
+@import 'configs';
+
+%flex-stack{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: $font-stack;
+}
+
+body{
+    position: relative;
+    @extend %flex-stack;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: $light-grayish-blue;
+    font-size: 13px;
+}
+
+.container{
+    @extend %flex-stack;
+    width: 720px;
+    height: 320px;
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: $shadow;
+    overflow: hidden;
+
+    .image-section{
+        width: 320px;
+        height: 320px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .text-section{
+        padding: 1rem 2rem;
+        width: 400px;
+        height: 320px;
+        position: relative;
+        h2{
+            font-size: 1.6em;
+            color: $very-dark-grayish-blue;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        p{
+            font-weight: 700;
+            color: $desaturated-dark-blue;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+        .profile-section{
+            @extend %flex-stack;
+            justify-content: space-between;
+            .profile{
+                @extend %flex-stack;
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+                .profile-text{
+                    margin-left: 1.5em;
+                    h4{
+                        color: $very-dark-grayish-blue;
+                        font-weight: 700;
+                    }
+                    h5{
+                        margin-top: -1em;
+                        font-size: 1em;
+                        color: $grayish-blue;
+                        opacity: 0.9;
+                    }
+                }
+            }
+            .profile-icon{
+                background-color: $light-grayish-blue;
+                padding: 0.9em;
+                border-radius: 50%;
+                cursor: pointer;
+                i{
+                    font-size: 1.4em;
+                    color: $very-dark-grayish-blue;
+                }
+            }
+            .profile-icon.profile-icon-active{
+                background-color: $very-dark-grayish-blue;
+                i{
+                    font-size: 1.4em;
+                    color: $light-grayish-blue;
+                }
+            }
+        }
+        .share-section{
+            @extend %flex-stack;
+            position: absolute;
+            top: 12em;
+            right: 1em;
+            background-color: $very-dark-grayish-blue;
+            padding: 0.6em 0.5em;
+            border-radius: 10px;
+            visibility: hidden;
+            transform: translateY(-0.5rem);
+            transition: 0.3s ease all;
+            opacity: 0;
+            &::after{
+                content: '';
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                bottom: -0.5rem;
+                left: 6;
+                transform: rotate(45deg);
+                background-color: $very-dark-grayish-blue;
+            }
+            h2{
+                color: $grayish-blue;
+                opacity: 0.8;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                font-size: 0.9em;
+                margin-left: 0.5rem;
+            }
+            .share-icons{
+                color: $white;
+                margin-left: 1.75em;
+                display: flex;
+                i{
+                    margin-right: 1em;
+                    font-size: 1.3em;
+                }
+            }
+        }
+        .share-section.share-active{
+            visibility: visible;
+            transform: translateY(1rem);
+            opacity: 1;
+        }
+    }
+}
+
+.attribution{
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    a{
+        font-weight: 500;
+    }
+}
+
+@media(max-width: 800px){
+    .container{
+        flex-direction: column;
+        width: 400px;
+        height: 575px;
+        .image-section{
+            width: 400px;
+            height: 250px;
+        }
+        .text-section{
+            width: 400px;
+            height: 325px;
+        }
+    }
+}
+
+@media(max-width: 425px){
+    .container{
+        width: 300px;
+        height: 625px;
+        .image-section{
+            width: 430px;
+            height: 225px;
+        }
+        .text-section{
+            width: 300px;
+            height: 400px;
+            .share-section{
+                top: 20em;
+            }
+        }
+    }
+}
